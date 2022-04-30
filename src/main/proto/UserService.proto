@@ -1,0 +1,18 @@
+syntax = "proto3";
+package user.service.grpc;
+
+message AllUserRequest {
+
+}
+
+message AllUserResponse {
+  repeated string users = 1;
+}
+
+service AllUserService {
+  rpc allUser(AllUserRequest) returns (AllUserResponse);
+}
+
+service AllUserServiceStream {
+  rpc allUser(AllUserRequest) returns (stream AllUserResponse);
+}
