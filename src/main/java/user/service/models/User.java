@@ -18,5 +18,6 @@ public class User {
     private String secondName;
     private int age;
     @Enumerated(EnumType.STRING)
+    @Column(name = "roles")
     private Role role;
 }
