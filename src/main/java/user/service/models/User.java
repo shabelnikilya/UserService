@@ -20,4 +20,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "roles")
     private Role role;
+
+    public User(String firstName, String secondName, int age, Role role) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.age = age;
+        this.role = role;
+    }
 }
