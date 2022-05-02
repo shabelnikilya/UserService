@@ -1,11 +1,16 @@
 package user.service.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Controller;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Getter
 @Entity
 @Table(name = "users")
 public class User {
