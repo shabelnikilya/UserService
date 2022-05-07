@@ -36,6 +36,7 @@ public class UserGrpcService extends UserCrudServiceGrpc.UserCrudServiceImplBase
                     .setId(findUser.getId())
                     .setFirstName(findUser.getFirstName())
                     .setSecondName(findUser.getSecondName())
+                    .setPassword(findUser.getPassword())
                     .setAge(findUser.getAge())
                     .setRole(findUser.getRole().toString())
                     .build();
@@ -43,6 +44,8 @@ public class UserGrpcService extends UserCrudServiceGrpc.UserCrudServiceImplBase
                     UserService.FindUserResponse.newBuilder().setUser(userGrpc).build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Данный пользователь не найден!"));
         }
     }
 
@@ -60,6 +63,7 @@ public class UserGrpcService extends UserCrudServiceGrpc.UserCrudServiceImplBase
                     .setId(findUser.getId())
                     .setFirstName(findUser.getFirstName())
                     .setSecondName(findUser.getSecondName())
+                    .setPassword(findUser.getPassword())
                     .setAge(findUser.getAge())
                     .setRole(findUser.getRole().toString())
                     .build();
@@ -77,6 +81,7 @@ public class UserGrpcService extends UserCrudServiceGrpc.UserCrudServiceImplBase
             User saveUser = new User(
                     user.getFirstName(),
                     user.getSecondName(),
+                    user.getPassword(),
                     user.getAge(),
                     Role.valueOf(user.getRole())
             );
@@ -98,6 +103,7 @@ public class UserGrpcService extends UserCrudServiceGrpc.UserCrudServiceImplBase
                     .setId(user.getId())
                     .setFirstName(user.getFirstName())
                     .setSecondName(user.getSecondName())
+                    .setPassword(user.getPassword())
                     .setAge(user.getAge())
                     .setRole(user.getRole().toString())
                     .build();

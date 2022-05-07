@@ -21,14 +21,16 @@ public class User {
     private String firstName;
     @Column(name = "second_name")
     private String secondName;
+    private String password;
     private int age;
     @Enumerated(EnumType.STRING)
     @Column(name = "roles")
     private Role role;
 
-    public User(String firstName, String secondName, int age, Role role) {
+    public User(String firstName, String secondName, String password, int age, Role role) {
         this.firstName = firstName;
         this.secondName = secondName;
+        this.password = password;
         this.age = age;
         this.role = role;
     }
